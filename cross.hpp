@@ -11,11 +11,12 @@ private:
 	sf::RectangleShape mCross2;
 
 public:
-	void setLocation(float x,float y) {
+	void setLocation(float x, float y) {
 		mCross1.setPosition(x, y);
-		mCross2.setPosition(x + 180, y);
-		mCross1.setSize(sf::Vector2f(10, 180 * sqrt(2)));
 		mCross1.setRotation(-45.f);
+		mCross1.setSize(sf::Vector2f(10, 180 * sqrt(2)));
+
+		mCross2.setPosition(x + 180, y);
 		mCross2.setRotation(45.f);
 		mCross2.setSize(sf::Vector2f(10, 180 * sqrt(2)));
 
@@ -24,6 +25,13 @@ public:
 	void crossRender(sf::RenderWindow& wn) {
 		wn.draw(mCross1);
 		wn.draw(mCross2);
+	}
+
+	void setWin(bool win) {
+		if (win == true) {
+			mCross1.setFillColor(sf::Color::Green);
+			mCross2.setFillColor(sf::Color::Green);
+		}
 	}
 };
 
